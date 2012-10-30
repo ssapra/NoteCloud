@@ -1,6 +1,14 @@
+
+<li><%= "#{heading.title}" %>
+  <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), heading_url(heading), method: 'delete', remote: true %>
+  <%= link_to image_tag('pencil.png', size: '20x20'), edit_heading_url(heading), remote: true %>
+</li>
+
 <ul>
-  <%= "#{heading.title}" %>
-  <% heading.notes.each_with_index do |note,index| %>
-    <li><%= "#{index}: #{note.content}" %></li>
+  <% heading.notes.each do |note| %>
+    <li><%= "#{note.content}" %>
+       <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), heading_url(heading), method: 'delete', remote: true %>
+       <%= link_to image_tag('pencil.png', size: '20x20'), edit_heading_url(heading), remote: true %>
+    </li>
   <% end %>
 </ul>
