@@ -1,0 +1,6 @@
+<ul>
+  <%= "#{heading.title}" %>
+  <% heading.notes.each_with_index do |note,index| %>
+    <li><%= "#{index}: #{note.content}" %></li>
+  <% end %>
+</ul>

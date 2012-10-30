@@ -1,2 +1,11 @@
-<%= "Hello #{@user}"%>
+<%= "Hello #{@user}" %>
 
+<h2>My Notes</h2>
+
+<ul>
+<% @headings.each do |heading| %>
+  <%= render '/headings/group', :heading => heading %>
+<% end %>
+</ul>
+
+<%= render '/headings/form' %>
