@@ -1,14 +1,15 @@
 
-<li><%= "#{heading.title}" %>
+<li id="heading_<%= heading.id %>"><%= "#{heading.title}" %>
   <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), heading_url(heading), method: 'delete', remote: true %>
   <%= link_to image_tag('pencil.png', size: '20x20'), edit_heading_url(heading), remote: true %>
 </li>
 
-<ul>
+<ul id="heading_<%= heading.id %>">
   <% heading.notes.each do |note| %>
     <li><%= "#{note.content}" %>
        <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), heading_url(heading), method: 'delete', remote: true %>
        <%= link_to image_tag('pencil.png', size: '20x20'), edit_heading_url(heading), remote: true %>
     </li>
   <% end %>
+  <li class="add_note_<%= heading.id %>">+</li>
 </ul>

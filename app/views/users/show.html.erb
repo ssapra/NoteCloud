@@ -2,7 +2,7 @@
 
 <h2>My Notes</h2>
 
-<ul>
+<ul id="headings">
 <% @headings.each do |heading| %>
   <%= render '/headings/group', :heading => heading %>
 <% end %>

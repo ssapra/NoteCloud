@@ -18,4 +18,12 @@ class HeadingsController < ApplicationController
       end
     end
   end
+  
+  def destroy
+    @heading = Heading.find(params[:id])
+    @heading.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
 end
