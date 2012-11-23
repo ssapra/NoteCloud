@@ -19,6 +19,23 @@ class HeadingsController < ApplicationController
     end
   end
   
+  def edit
+    @heading = Heading.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
+  def update
+    @heading = Heading.find(params[:id])
+    @heading.update_attributes(params[:heading])
+      
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def destroy
     @heading = Heading.find(params[:id])
     @heading.destroy
