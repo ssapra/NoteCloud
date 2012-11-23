@@ -2,10 +2,44 @@
 
 <h2>My Notes</h2>
 
+
 <ul id="headings">
-<% @headings.each do |heading| %>
-  <%= render '/headings/group', :heading => heading %>
-<% end %>
+	<div id="accordion">
+		<% @headings.each do |heading| %>
+			<li id="heading_<%= heading.id %>"><%= "#{heading.title}" %>
+		  	  <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), heading_url(heading), method: 'delete', remote: true %>
+		  		<%= link_to image_tag('pencil.png', size: '20x20'), edit_heading_url(heading), remote: true %>
+			</li>
+			
+			<div>
+				<%= render '/headings/group', :heading => heading %>
+			</div>
+		<% end %>
+	</div>
 </ul>
 
 <%= render '/headings/form' %>
+
+
+
+
+<div id="accordion">
+    <h3>Section 1</h3>
+    <div>
+        <p>
+        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+    </div>
+    <h3>Section 2</h3>
+    <div>
+        <p>
+        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+        suscipit faucibus urna.
+        </p>
+    </div>
+</div>
